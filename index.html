@@ -163,3 +163,116 @@ Place Order
     </html>
 <!DOCTYPE html>
 
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMM Panel Order</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #0f1026; color: #fff; padding: 20px; }
+        .card { background: #1a1b3a; padding: 20px; border-radius: 12px; max-width: 400px; margin: 0 auto; }
+        input, select, button { width: 100%; padding: 12px; margin: 8px 0; border-radius: 6px; border: none; box-sizing: border-box; }
+        input, select { background: #2a2b5a; color: #fff; }
+        button { background: #28a745; color: white; font-weight: bold; cursor: pointer; }
+        #message { margin-top: 10px; font-weight: bold; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>SMM Panel Order System</h2>
+    
+    <label>સર્વિસ સિલેક્ટ કરો:</label>
+    <select id="service">
+        <option value="yt_views">YouTube Views</option>
+        <option value="insta_followers">Instagram Followers</option>
+        <option value="tg_members">Telegram Members</option>
+    </select>
+
+    <label>તમારી લિંક:</label>
+    <input type="text" id="link" placeholder="https://..." required>
+
+    <label>જથ્થો (મહત્તમ 10,000):</label>
+    <input type="number" id="quantity" placeholder="उदा. 1000" max="10000" min="10" required>
+
+    <button onclick="placeOrder()">Submit Order</button>
+
+    <div id="message"></div>
+</div>
+
+<script>
+function placeOrder() {
+    let link = document.getElementById('link').value;
+    let qty = parseInt(document.getElementById('quantity').value);
+    let msg = document.getElementById('message');
+
+    if (!link) {
+        msg.style.color = "red";
+        msg.innerText = "મહેરબાની કરીને લિંક નાખો!";
+        return;
+    }
+
+    if (isNaN(qty) || qty < 10) {
+        msg.style.color = "red";
+        msg.innerText = "ઓછામાં ઓછો 10 નો ઓર્ડર આપો.";
+        return;
+    }
+
+    // 10,000 ની લિમિટ
+    if (qty > 10000) {
+        msg.style.color = "red";
+        msg.innerText = "મહત્તમ 10,000 નો જ ઓર્ડર આપી શકાય છે!";
+        return;
+    }
+
+    // સફળ ઓર્ડર મેસેજ
+    msg.style.color = "#28a745";
+    msg.innerText = "✅ ઓર્ડર સફળતાપૂર્વક સબમિટ થયો! Quantity: " + qty;
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMM Panel - Secure Login</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <style>
+        body { font-family: Arial, sans-serif; background: #0f1026; color: #fff; text-align: center; padding: 20px; }
+        .card { background: #1a1b3a; padding: 25px; border-radius: 12px; max-width: 400px; margin: 30px auto; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        #dashboard { display: none; } /* शुरुआती में डैशबोर्ड छुपा रहेगा */
+        input, select, button { width: 100%; padding: 12px; margin: 10px 0; border-radius: 6px; border: none; box-sizing: border-box; }
+        input, select { background: #2a2b5a; color: #fff; }
+        button { background: #28a745; color: white; font-weight: bold; cursor: pointer; }
+        .user-info { margin-bottom: 15px; font-weight: bold; color: #4de76d; }
+    </style>
+</head>
+<body>
+
+    <div id="login-box" class="card">
+        <h2>सुरक्षा जांच (Security First)</h2>
+        <p>वेबसाइट का इस्तेमाल करने के लिए गूगल से लॉगिन करें:</p>
+        <br>
+        <div id="g_id_onload"
+            data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
+            data-callback="handleCredentialResponse">
+        </div>
+        <div class="g_id_signin" data-type="standard"></div>
+    </div>
+
+    <div id="dashboard" class="card">
+        <div class="user-info" id="user-name"></div>
+
+        <h3>SMM Order Panel</h3>
+        
+        <label>सर्विस चुनें:</label>
+        <select id="service">
+            <option value="subscribers">YouTube Subscribers</option>
+            <option value="views">YouTube Views</option>
+            <option value="likes">YouTube Likes</option>
+            <option value="insta_followers">Instagram Followers</option>
+            <option value="tg_
