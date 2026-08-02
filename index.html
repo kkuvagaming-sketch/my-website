@@ -1,1 +1,233 @@
 alert("Demo only - No real order placed");alert("Order Submitted Successfully");window.location.href = "order.html";<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheapest SMM Panels</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0b021a; color: #ffffff; padding: 15px 10px; position: relative; min-height: 100vh; }
+
+        .container { max-width: 420px; margin: 0 auto; }
+
+        /* Top Header Slogan */
+        .top-header { text-align: center; margin-bottom: 20px; }
+        .slogan { color: #ffffff; font-size: 15px; font-weight: 800; text-decoration: underline; text-underline-offset: 4px; letter-spacing: 0.5px; }
+
+        /* White Info Cards Style */
+        .panel-card { background: #ffffff; color: #000000; border-radius: 20px; padding: 18px; margin-bottom: 15px; display: flex; align-items: center; position: relative; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+        .card-icon { font-size: 38px; margin-right: 20px; display: flex; align-items: center; justify-content: center; width: 45px; }
+        .card-info h2 { font-size: 24px; font-weight: 800; color: #000000; margin-bottom: 2px; }
+        .card-info p { font-size: 13px; color: #333333; font-weight: 600; }
+        .card-info a { color: #0066cc; text-decoration: none; font-weight: bold; }
+
+        /* Red Notice Bar */
+        .notice-card { background: #ffffff; border-radius: 20px; padding: 16px; text-align: center; font-weight: bold; font-size: 13px; color: #d32f2f; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; cursor: pointer; }
+        .notice-card span { font-size: 20px; color: #000; }
+
+        /* Main Service Box */
+        .services-box { background: #ffffff; border-radius: 20px; padding: 15px; margin-bottom: 20px; color: #000; }
+        
+        /* 6 Column Icon Grid (Exact match) */
+        .icons-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-bottom: 15px; }
+        .icon-item { background: #f0f2f5; border-radius: 12px; padding: 10px 4px; text-align: center; font-size: 18px; cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: center; }
+        .icon-item:hover, .icon-item.active { background: #dce4ff; border: 1px solid #0066cc; }
+
+        /* Order Box Inside Panel */
+        .order-section { background: #0b021a; color: #fff; padding: 15px; border-radius: 12px; margin-top: 10px; }
+        .form-group { margin-bottom: 12px; text-align: left; }
+        .form-group label { display: block; font-size: 12px; color: #aaa; margin-bottom: 4px; }
+        .form-group select, .form-group input { width: 100%; padding: 10px; background: #161833; border: 1px solid #333; border-radius: 6px; color: white; font-size: 13px; outline: none; }
+        
+        .price-details { background: #161833; padding: 10px; border-radius: 6px; font-size: 12px; margin-bottom: 12px; text-align: left; }
+        .price-details span { color: #28a745; font-weight: bold; }
+
+        .btn-submit { width: 100%; padding: 12px; background: #28a745; color: white; border: none; font-weight: bold; border-radius: 6px; cursor: pointer; font-size: 14px; }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-btn { position: fixed; bottom: 25px; right: 20px; background: #25d366; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.5); cursor: pointer; z-index: 100; text-decoration: none; }
+        .whatsapp-btn img { width: 32px; height: 32px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="top-header">
+        <div class="slogan">👉 OUR BELIEVE - QUALITY OVER QUANTITY 🤛</div>
+    </div>
+
+    <div class="panel-card">
+        <div class="card-icon">📖</div>
+        <div class="card-info">
+            <h2>User Account</h2>
+            <p>Welcome to panel!</p>
+        </div>
+    </div>
+
+    <div class="panel-card">
+        <div class="card-icon">📊</div>
+        <div class="card-info">
+            <h2 id="spentVal">₹0.0000</h2>
+            <p>Spent balance</p>
+        </div>
+    </div>
+
+    <div class="panel-card">
+        <div class="card-icon">💳</div>
+        <div class="card-info">
+            <h2 id="userBalVal">₹500.00</h2>
+            <p>To Add more Fund <a href="#" onclick="alert('Add Money ગેટવે ટૂંક સમયમાં ચાલુ થશે!')">CLICK HERE</a></p>
+        </div>
+    </div>
+
+    <div class="notice-card">
+        <div>THINGS TO BE KNOWN BEFORE PLACING ORDER</div>
+        <span>⊕</span>
+    </div>
+
+    <div class="services-box">
+        <div class="icons-grid">
+            <div class="icon-item active" onclick="selectSocial('yt', this)">▶️</div>
+            <div class="icon-item" onclick="selectSocial('insta', this)">📸</div>
+            <div class="icon-item" onclick="selectSocial('tg', this)">✈️</div>
+            <div class="icon-item" onclick="selectSocial('fb', this)">📘</div>
+            <div class="icon-item" onclick="selectSocial('tk', this)">🎵</div>
+            <div class="icon-item" onclick="selectSocial('tw', this)">🐦</div>
+        </div>
+
+        <div class="order-section">
+            <h3 id="servTitle" style="margin-bottom: 10px; font-size: 15px; color: #28a745;">▶️ YouTube Services</h3>
+            
+            <div class="form-group">
+                <label>સર્વિસ પેકેજ:</label>
+                <select id="servPkg" onchange="calcTotal()"></select>
+            </div>
+
+            <div class="form-group">
+                <label>તમારી લિંક:</label>
+                <input type="text" id="servLink" placeholder="https://...">
+            </div>
+
+            <div class="form-group">
+                <label>જથ્થો (Quantity - Max 10,000):</label>
+                <input type="number" id="servQty" value="1000" min="10" max="10000" oninput="calcTotal()">
+            </div>
+
+            <div class="price-details">
+                <div>⏱️ અંદાજિત સમય: <span id="delTime" style="color:#ffb300;">15-30 મિનિટ</span></div>
+                <div>💰 કાપવામાં આવતી રકમ: <span id="totalCost">₹0.00</span></div>
+            </div>
+
+            <button class="btn-submit" onclick="submitSmmOrder()">ઓર્ડર કન્ફર્મ કરો</button>
+            <div id="statusMsg" style="margin-top: 10px; text-align: center; font-weight: bold; font-size: 12px;"></div>
+        </div>
+    </div>
+
+</div>
+
+<a href="https://wa.me/" target="_blank" class="whatsapp-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<script>
+    let myBalance = 500.00;
+    let spentBalance = 0.00;
+
+    const allData = {
+        yt: [
+            { name: 'YouTube Views (Max 10,000)', rate: 0.5, time: '15 થી 30 મિનિટ' },
+            { name: 'YouTube Subscribers (Max 10,000)', rate: 1.2, time: '30 થી 60 મિનિટ' }
+        ],
+        insta: [
+            { name: 'Instagram Followers (Max 10,000)', rate: 0.3, time: '10 થી 20 મિનિટ' },
+            { name: 'Instagram Likes (Max 10,000)', rate: 0.1, time: '5 મિનિટ' }
+        ],
+        tg: [{ name: 'Telegram Members (Max 10,000)', rate: 0.25, time: '15 મિનિટ' }],
+        fb: [{ name: 'Facebook Page Likes (Max 10,000)', rate: 0.4, time: '20 મિનિટ' }],
+        tk: [{ name: 'TikTok Views (Max 10,000)', rate: 0.05, time: '5 મિનિટ' }],
+        tw: [{ name: 'Twitter Followers (Max 10,000)', rate: 0.6, time: '45 મિનિટ' }]
+    };
+
+    let activeSocial = 'yt';
+
+    function selectSocial(key, element) {
+        activeSocial = key;
+        document.querySelectorAll('.icon-item').forEach(i => i.classList.remove('active'));
+        element.classList.add('active');
+        
+        let titles = { yt: '▶️ YouTube Services', insta: '📸 Instagram Services', tg: '✈️ Telegram Services', fb: '📘 Facebook Services', tk: '🎵 TikTok Services', tw: '🐦 Twitter Services' };
+        document.getElementById('servTitle').innerText = titles[key];
+
+        loadPkgs();
+    }
+
+    function loadPkgs() {
+        const sel = document.getElementById('servPkg');
+        sel.innerHTML = '';
+        allData[activeSocial].forEach((item, index) => {
+            let opt = document.createElement('option');
+            opt.value = index;
+            opt.innerText = item.name;
+            sel.appendChild(opt);
+        });
+        calcTotal();
+    }
+
+    function calcTotal() {
+        const idx = document.getElementById('servPkg').value;
+        const item = allData[activeSocial][idx];
+        let qty = parseInt(document.getElementById('servQty').value) || 0;
+
+        if (qty > 10000) {
+            qty = 10000;
+            document.getElementById('servQty').value = 10000;
+        }
+
+        let total = (qty * item.rate).toFixed(2);
+        document.getElementById('totalCost').innerText = '₹' + total;
+        document.getElementById('delTime').innerText = item.time;
+    }
+
+    function submitSmmOrder() {
+        const link = document.getElementById('servLink').value.trim();
+        const qty = parseInt(document.getElementById('servQty').value) || 0;
+        const msg = document.getElementById('statusMsg');
+        const idx = document.getElementById('servPkg').value;
+        const item = allData[activeSocial][idx];
+        let cost = parseFloat((qty * item.rate).toFixed(2));
+
+        if (!link) {
+            msg.style.color = '#ff4d4d';
+            msg.innerText = '⚠️ કૃપા કરીને લિંક દાખલ કરો!';
+            return;
+        }
+
+        if (qty < 10 || qty > 10000) {
+            msg.style.color = '#ff4d4d';
+            msg.innerText = '⚠️ જથ્થો 10 થી 10,000 ની વચ્ચે હોવો જોઈએ!';
+            return;
+        }
+
+        if (myBalance < cost) {
+            msg.style.color = '#ff4d4d';
+            msg.innerText = '❌ પૂરતું બેલેન્સ નથી!';
+            return;
+        }
+
+        myBalance -= cost;
+        spentBalance += cost;
+
+        document.getElementById('userBalVal').innerText = '₹' + myBalance.toFixed(4);
+        document.getElementById('spentVal').innerText = '₹' + spentBalance.toFixed(4);
+
+        msg.style.color = '#28a745';
+        msg.innerText = `✅ ઓર્ડર કન્ફર્મ થયો! ₹${cost} કપાઈ ગયા. સમય: ${item.time}`;
+    }
+
+    loadPkgs();
+</script>
+
+</body>
+</html>
