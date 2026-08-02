@@ -469,3 +469,358 @@ function placeOrder() {
 
 </body>
 </html>
+/* સર્વિસ બટન્સ માટેનો કોડ */
+.service-btn, .services-grid div, button {
+    background-color: #1a1c3d !important; /* ડાર્ક બ્લુ બેકગ્રાઉન્ડ */
+    color: #ffffff !important;           /* સફેદ અક્ષરો */
+    border: 1px solid #3b82f6;           /* બ્લુ બોર્ડર */
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* બટન પર ટચ / હોવર થાય ત્યારે */
+.service-btn:hover {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+}
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMM Panel - Working System</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        body { background-color: #0d0f21; color: #fff; padding: 15px; }
+        .container { max-width: 450px; margin: 0 auto; }
+        
+        .balance-box { background: #161833; padding: 15px; border-radius: 10px; text-align: center; margin-bottom: 20px; border: 1px solid #2a2c54; }
+        .balance-box h2 { color: #28a745; font-size: 24px; margin-bottom: 5px; }
+        
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+        .service-btn { background: #1a1c3d; color: #ffffff !important; border: 1px solid #3b82f6; padding: 12px 5px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: bold; cursor: pointer; }
+        .service-btn.active, .service-btn:hover { background: #2563eb; }
+
+        .order-card { background: #161833; padding: 20px; border-radius: 10px; border: 1px solid #2a2c54; }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; font-size: 12px; color: #aaa; margin-bottom: 5px; }
+        .form-group select, .form-group input { width: 100%; padding: 10px; background: #0f1126; border: 1px solid #2d3160; border-radius: 6px; color: #fff; font-size: 13px; }
+
+        .price-box { background: #1e2246; padding: 10px; border-radius: 6px; margin: 10px 0; font-size: 13px; }
+        .price-box span { color: #28a745; font-weight: bold; }
+
+        .btn-submit { width: 100%; padding: 12px; background: #28a745; color: white; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; font-size: 15px; }
+        #orderMsg { margin-top: 10px; text-align: center; font-size: 13px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="balance-box">
+        <p>વોલેટ બેલેન્સ (Wallet Balance)</p>
+        <h2 id="userBalance">₹500.00</h2>
+    </div>
+
+    <div class="services-grid">
+        <div class="service-btn active" onclick="changeCategory('yt', this)">YouTube</div>
+        <div class="service-btn" onclick="changeCategory('insta', this)">Instagram</div>
+        <div class="service-btn" onclick="changeCategory('fb', this)">Facebook</div>
+        <div class="service-btn" onclick="changeCategory('tg', this)">Telegram</div>
+        <div class="service-btn" onclick="changeCategory('tk', this)">TikTok</div>
+        <div class="service-btn" onclick="changeCategory('tw', this)">Twitter</div>
+    </div>
+
+    <div class="order-card">
+        <h3 id="catTitle" style="margin-bottom:12px; font-size:16px;">YouTube Services</h3>
+
+        <div class="form-group">
+            <label>સર્વિસ પસંદ કરો:</label>
+            <select id="serviceSelect" onchange="updatePrice()"></select>
+        </div>
+
+        <div class="form-group">
+            <label>તમારી લિંક:</label>
+            <input type="text" id="targetLink" placeholder="https://...">
+        </div>
+
+        <div class="form-group">
+            <label>જથ્થો (Quantity) - મહત્તમ 10,000:</label>
+            <input type="number" id="orderQty" value="1000" min="10" max="10000" oninput="updatePrice()">
+        </div>
+
+        <div class="price-box">
+            <div>⏱️ સમય: <span id="deliveryTime" style="color:#f59e0b;">15-30 મિનિટ</span></div>
+            <div>💰 કાપવામાં આવતી રકમ: <span id="totalCost">₹0.00</span></div>
+        </div>
+
+        <button class="btn-submit" onclick="placeOrder()">ઓર્ડર આપો અને પૈસા આપો</button>
+        <div id="orderMsg"></div>
+    </div>
+</div>
+
+<script>
+    let walletBalance = 500.00; // શરૂઆતનું બેલેન્સ
+
+    const packages = {
+        yt: [
+            { name: 'YouTube Views (Max 10,000)', rate: 0.5, time: '15 થી 30 મિનિટ' },
+            { name: 'YouTube Subscribers (Max 10,000)', rate: 1.2, time: '1 થી 2 કલાક' }
+        ],
+        insta: [
+            { name: 'Instagram Followers (Max 10,000)', rate: 0.3, time: '10 થી 20 મિનિટ' },
+            { name: 'Instagram Likes (Max 10,000)', rate: 0.1, time: '5 મિનિટ' }
+        ],
+        fb: [{ name: 'Facebook Page Likes (Max 10,000)', rate: 0.4, time: '30 મિનિટ' }],
+        tg: [{ name: 'Telegram Members (Max 10,000)', rate: 0.25, time: '15 મિનિટ' }],
+        tk: [{ name: 'TikTok Views (Max 10,000)', rate: 0.05, time: '5 મિનિટ' }],
+        tw: [{ name: 'Twitter Followers (Max 10,000)', rate: 0.6, time: '1 કલાક' }]
+    };
+
+    let currentCat = 'yt';
+
+    function changeCategory(cat, element) {
+        currentCat = cat;
+        document.querySelectorAll('.service-btn').forEach(b => b.classList.remove('active'));
+        element.classList.add('active');
+        document.getElementById('catTitle').innerText = element.innerText + " Services";
+        loadServices();
+    }
+
+    function loadServices() {
+        const select = document.getElementById('serviceSelect');
+        select.innerHTML = '';
+        packages[currentCat].forEach((item, index) => {
+            let opt = document.createElement('option');
+            opt.value = index;
+            opt.innerText = item.name;
+            select.appendChild(opt);
+        });
+        updatePrice();
+    }
+
+    function updatePrice() {
+        const idx = document.getElementById('serviceSelect').value;
+        const item = packages[currentCat][idx];
+        let qty = parseInt(document.getElementById('orderQty').value) || 0;
+
+        if (qty > 10000) {
+            document.getElementById('orderQty').value = 10000;
+            qty = 10000;
+        }
+
+        let total = (qty * item.rate).toFixed(2);
+        document.getElementById('totalCost').innerText = '₹' + total;
+        document.getElementById('deliveryTime').innerText = item.time;
+    }
+
+    function placeOrder() {
+        const link = document.getElementById('targetLink').value.trim();
+        const qty = parseInt(document.getElementById('orderQty').value) || 0;
+        const msg = document.getElementById('orderMsg');
+        const idx = document.getElementById('serviceSelect').value;
+        const item = packages[currentCat][idx];
+        let totalCost = parseFloat((qty * item.rate).toFixed(2));
+
+        if (!link) {
+            msg.style.color = '#ff4d4d';
+            msg.innerText = '⚠️ કૃપા કરીને લિંક દાખલ કરો!';
+            return;
+        }
+
+        if (qty < 10 || qty > 10000) {
+            msg.style.color = '#ff4d4d';
+            msg.innerText = '⚠️ જથ્થો 10 થી 10,000 ની વચ્ચે હોવો જોઈએ!';
+            return;
+        }
+
+        // પૈસા કાપવાની સિસ્ટમ
+        if (walletBalance < totalCost) {
+            msg.style.color = '#ff4d4d';
+            msg.innerText = '❌ ખાતામાં પૂરતું બેલેન્સ નથી! કૃપા કરીને Add Money કરો.';
+            return;
+        }
+
+        walletBalance -= totalCost;
+        document.getElementById('userBalance').innerText = '₹' + walletBalance.toFixed(2);
+
+        msg.style.color = '#28a745';
+        msg.innerText = `✅ ઓર્ડર સફળ થયો! ₹${totalCost} કપાઈ ગયા છે. સમય: ${item.time}`;
+    }
+
+    loadServices();
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMM Panel - Working System</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        body { background-color: #0d0f21; color: #fff; padding: 15px; }
+        .container { max-width: 450px; margin: 0 auto; }
+        
+        .balance-box { background: #161833; padding: 15px; border-radius: 10px; text-align: center; margin-bottom: 20px; border: 1px solid #2a2c54; }
+        .balance-box h2 { color: #28a745; font-size: 24px; margin-bottom: 5px; }
+        
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+        .service-btn { background: #1a1c3d; color: #ffffff !important; border: 1px solid #3b82f6; padding: 12px 5px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: bold; cursor: pointer; }
+        .service-btn.active, .service-btn:hover { background: #2563eb; }
+
+        .order-card { background: #161833; padding: 20px; border-radius: 10px; border: 1px solid #2a2c54; }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; font-size: 12px; color: #aaa; margin-bottom: 5px; }
+        .form-group select, .form-group input { width: 100%; padding: 10px; background: #0f1126; border: 1px solid #2d3160; border-radius: 6px; color: #fff; font-size: 13px; }
+
+        .price-box { background: #1e2246; padding: 10px; border-radius: 6px; margin: 10px 0; font-size: 13px; }
+        .price-box span { color: #28a745; font-weight: bold; }
+
+        .btn-submit { width: 100%; padding: 12px; background: #28a745; color: white; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; font-size: 15px; }
+        #orderMsg { margin-top: 10px; text-align: center; font-size: 13px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="balance-box">
+        <p>વોલેટ બેલેન્સ (Wallet Balance)</p>
+        <h2 id="userBalance">₹500.00</h2>
+    </div>
+
+    <div class="services-grid">
+        <div class="service-btn active" onclick="changeCategory('yt', this)">YouTube</div>
+        <div class="service-btn" onclick="changeCategory('insta', this)">Instagram</div>
+        <div class="service-btn" onclick="changeCategory('fb', this)">Facebook</div>
+        <div class="service-btn" onclick="changeCategory('tg', this)">Telegram</div>
+        <div class="service-btn" onclick="changeCategory('tk', this)">TikTok</div>
+        <div class="service-btn" onclick="changeCategory('tw', this)">Twitter</div>
+    </div>
+
+    <div class="order-card">
+        <h3 id="catTitle" style="margin-bottom:12px; font-size:16px;">YouTube Services</h3>
+
+        <div class="form-group">
+            <label>સર્વિસ પસંદ કરો:</label>
+            <select id="serviceSelect" onchange="updatePrice()"></select>
+        </div>
+
+        <div class="form-group">
+            <label>તમારી લિંક:</label>
+            <input type="text" id="targetLink" placeholder="https://...">
+        </div>
+
+        <div class="form-group">
+            <label>જથ્થો (Quantity) - મહત્તમ 10,000:</label>
+            <input type="number" id="orderQty" value="1000" min="10" max="10000" oninput="updatePrice()">
+        </div>
+
+        <div class="price-box">
+            <div>⏱️ સમય: <span id="deliveryTime" style="color:#f59e0b;">15-30 મિનિટ</span></div>
+            <div>💰 કાપવામાં આવતી રકમ: <span id="totalCost">₹0.00</span></div>
+        </div>
+
+        <button class="btn-submit" onclick="placeOrder()">ઓર્ડર આપો અને પૈસા આપો</button>
+        <div id="orderMsg"></div>
+    </div>
+</div>
+
+<script>
+    let walletBalance = 500.00; // શરૂઆતનું બેલેન્સ
+
+    const packages = {
+        yt: [
+            { name: 'YouTube Views (Max 10,000)', rate: 0.5, time: '15 થી 30 મિનિટ' },
+            { name: 'YouTube Subscribers (Max 10,000)', rate: 1.2, time: '1 થી 2 કલાક' }
+        ],
+        insta: [
+            { name: 'Instagram Followers (Max 10,000)', rate: 0.3, time: '10 થી 20 મિનિટ' },
+            { name: 'Instagram Likes (Max 10,000)', rate: 0.1, time: '5 મિનિટ' }
+        ],
+        fb: [{ name: 'Facebook Page Likes (Max 10,000)', rate: 0.4, time: '30 મિનિટ' }],
+        tg: [{ name: 'Telegram Members (Max 10,000)', rate: 0.25, time: '15 મિનિટ' }],
+        tk: [{ name: 'TikTok Views (Max 10,000)', rate: 0.05, time: '5 મિનિટ' }],
+        tw: [{ name: 'Twitter Followers (Max 10,000)', rate: 0.6, time: '1 કલાક' }]
+    };
+
+    let currentCat = 'yt';
+
+    function changeCategory(cat, element) {
+        currentCat = cat;
+        document.querySelectorAll('.service-btn').forEach(b => b.classList.remove('active'));
+        element.classList.add('active');
+        document.getElementById('catTitle').innerText = element.innerText + " Services";
+        loadServices();
+    }
+
+    function loadServices() {
+        const select = document.getElementById('serviceSelect');
+        select.innerHTML = '';
+        packages[currentCat].forEach((item, index) => {
+            let opt = document.createElement('option');
+            opt.value = index;
+            opt.innerText = item.name;
+            select.appendChild(opt);
+        });
+        updatePrice();
+    }
+
+    function updatePrice() {
+        const idx = document.getElementById('serviceSelect').value;
+        const item = packages[currentCat][idx];
+        let qty = parseInt(document.getElementById('orderQty').value) || 0;
+
+        if (qty > 10000) {
+            document.getElementById('orderQty').value = 10000;
+            qty = 10000;
+        }
+
+        let total = (qty * item.rate).toFixed(2);
+        document.getElementById('totalCost').innerText = '₹' + total;
+        document.getElementById('deliveryTime').innerText = item.time;
+    }
+
+    function placeOrder() {
+        const link = document.getElementById('targetLink').value.trim();
+        const qty = parseInt(document.getElementById('orderQty').value) || 0;
+        const msg = document.getElementById('orderMsg');
+        const idx = document.getElementById('serviceSelect').value;
+        const item = packages[currentCat][idx];
+        let totalCost = parseFloat((qty * item.rate).toFixed(2));
+
+        if (!link) {
+            msg.style.color = '#ff4d4d';
+            msg.innerText = '⚠️ કૃપા કરીને લિંક દાખલ કરો!';
+            return;
+        }
+
+        if (qty < 10 || qty > 10000) {
+            msg.style.color = '#ff4d4d';
+            msg.innerText = '⚠️ જથ્થો 10 થી 10,000 ની વચ્ચે હોવો જોઈએ!';
+            return;
+        }
+
+        // પૈસા કાપવાની સિસ્ટમ
+        if (walletBalance < totalCost) {
+            msg.style.color = '#ff4d4d';
+            msg.innerText = '❌ ખાતામાં પૂરતું બેલેન્સ નથી! કૃપા કરીને Add Money કરો.';
+            return;
+        }
+
+        walletBalance -= totalCost;
+        document.getElementById('userBalance').innerText = '₹' + walletBalance.toFixed(2);
+
+        msg.style.color = '#28a745';
+        msg.innerText = `✅ ઓર્ડર સફળ થયો! ₹${totalCost} કપાઈ ગયા છે. સમય: ${item.time}`;
+    }
+
+    loadServices();
+</script>
+
+</body>
+</html>
