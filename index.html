@@ -1,4 +1,89 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Panel</title>
+
+<style>
+body{
+  margin:0;
+  background:#17043b;
+  font-family:Arial,sans-serif;
+}
+.card{
+  background:#fff;
+  margin:20px;
+  padding:20px;
+  border-radius:20px;
+}
+.amount{
+  font-size:42px;
+  font-weight:bold;
+}
+.btn{
+  display:block;
+  text-align:center;
+  background:#28a745;
+  color:#fff;
+  padding:15px;
+  border-radius:10px;
+  text-decoration:none;
+}
+.search{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+.icons{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+.icon{
+  background:#f3f3f3;
+  padding:18px;
+  border-radius:12px;
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<div class="amount">₹100000</div>
+<p>Available Balance</p>
+</div>
+
+<div class="card">
+<h3>Add Funds</h3>
+<a href="#" class="btn">Add Money</a>
+</div>
+
+<div class="card">
+<h3>Services</h3>
+
+<div class="icons">
+<div class="icon">YouTube</div>
+<div class="icon">Instagram</div>
+<div class="icon">Facebook</div>
+<div class="icon">Telegram</div>
+<div class="icon">TikTok</div>
+<div class="icon">Spotify</div>
+<div class="icon">Twitter</div>
+<div class="icon">More</div>
+</div>
+
+<br>
+
+<input class="search" placeholder="Search Service">
+
+</div>
+
+</body>
+</html><!DOCTYPE html>
 <html>
 <head>
     <title>My Website</title>
