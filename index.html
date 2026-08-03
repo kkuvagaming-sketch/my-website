@@ -2,25 +2,86 @@
 <html lang="gu">
 <head>
   <meta charset="UTF-8">
-  <title>Cheapest SMM Panels</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMM Dashboard</title>
   <style>
-    body { background-color: #0b021a; color: #ffffff; font-family: sans-serif; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+    body { background-color: #0b021a; color: #ffffff; padding: 15px; }
+    .container { max-width: 450px; margin: 0 auto; }
+    
+    /* Stats Cards Layout */
+    .stats-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+    .stat-card { background: linear-gradient(135deg, #1e1138, #12072b); border: 1px solid #2d1b54; border-radius: 12px; padding: 15px; display: flex; align-items: center; justify-content: space-between; }
+    .stat-info h3 { font-size: 13px; color: #a0a0a0; font-weight: 500; margin-bottom: 4px; }
+    .stat-info p { font-size: 18px; font-weight: bold; color: #ffffff; }
+    .stat-icon { font-size: 24px; }
   </style>
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
 
-  <div id="g_id_onload"
-       data-client_id="537797135096-kca5ql8jm1jrkuga2lieaesuf4em5vg7.apps.googleusercontent.com"
-       data-auto_prompt="false">
-  </div>
+  <div class="container">
+    <div class="stats-grid">
+      
+      <div class="stat-card">
+        <div class="stat-info">
+          <h3>User Account</h3>
+          <p>Kuvagaming</p>
+        </div>
+        <div class="stat-icon">👤</div>
+      </div>
 
-  <div class="g_id_signin"
-       data-type="standard"
-       data-size="large"
-       data-theme="outline">
+      <div class="stat-card">
+        <div class="stat-info">
+          <h3>Spent Balance</h3>
+          <p>₹0.00</p>
+        </div>
+        <div class="stat-icon">💰</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-info">
+          <h3>Total Orders</h3>
+          <p>0</p>
+        </div>
+        <div class="stat-icon">📦</div>
+      </div>
+
+    </div>
   </div>
 
 </body>
 </html>
+    <div style="background-color: #ffffff; color: #333333; border-radius: 12px; padding: 20px; margin-top: 15px;">
+      <h2 style="font-size: 18px; margin-bottom: 15px; text-align: center;">New Order</h2>
 
+      <div style="margin-bottom: 15px;">
+        <label style="display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px;">Category</label>
+        <select style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; background-color: #f7f7f7;">
+          <option>YouTube Likes</option>
+          <option>Instagram Followers</option>
+          <option>Telegram Members</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <label style="display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px;">Service</label>
+        <select style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; background-color: #f7f7f7;">
+          <option>YouTube Likes [Refill: 30 Days]</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <label style="display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px;">Link</label>
+        <input type="text" placeholder="https://" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; background-color: #f7f7f7;">
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <label style="display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px;">Quantity</label>
+        <input type="number" placeholder="1000" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; background-color: #f7f7f7;">
+        <small style="color: #666; font-size: 11px;">Min: 10 - Max: 5000</small>
+      </div>
+
+      <button style="width: 100%; padding: 12px; background-color: #0b021a; color: #ffffff; border: none; border-radius: 8px; font-weight: bold; font-size: 15px; cursor: pointer;">
+        Submit Order
+      </button>
+    </div>
