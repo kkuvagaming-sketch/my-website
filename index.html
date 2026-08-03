@@ -59,6 +59,7 @@
 
       <div id="g_id_onload"
            data-client_id="537797135096-kca5ql8jm1jrkuga2lieaesuf4em5vg7.apps.googleusercontent.com"
+           data-callback="handleCredentialResponse"
            data-auto_prompt="false">
       </div>
 
@@ -74,6 +75,13 @@
     </div>
 
   </div>
+
+  <script>
+    function handleCredentialResponse(response) {
+      console.log("Encoded JWT ID token: " + response.credential);
+      // You can decode or send this token to your backend here
+    }
+  </script>
 
 </body>
 </html>
