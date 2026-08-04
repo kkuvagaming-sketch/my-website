@@ -3,24 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cheapest SMM Panels - Login</title>
+    <title>રિવોર્ડ વેબસાઇટ</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
-        body { background-color: #f0f0f0; color: #333333; padding: 20px 15px; }
-        .container { max-width: 400px; margin: 0 auto; }
-        .header-title { font-size: 26px; font-weight: 800; text-align: center; margin-bottom: 15px; line-height: 1.2; }
-        .features-list { list-style: none; margin-bottom: 25px; padding-left: 10px; }
-        .features-list li { font-size: 14px; margin-bottom: 6px; }
-        .card { background-color: #ffffff; color: #333333; border-radius: 16px; padding: 25px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; font-size: 13px; font-weight: 700; color: #4a5568; margin-bottom: 6px; }
-        .form-group input { width: 100%; padding: 12px; border: 1px solid #e2e8f0; background-color: #edf2f7; border-radius: 8px; }
-        .forgot-pass { display: block; text-align: left; font-size: 13px; color: #3182ce; text-decoration: none; margin-bottom: 15px; }
-        .btn-signin { width: 100%; padding: 12px; background-color: #2b6cb0; color: #ffffff; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; margin-bottom: 15px; }
-        .google-btn-box { display: flex; justify-content: center; margin-bottom: 15px; }
-        .signup-text { font-size: 13px; text-align: center; color: #4a5568; }
-        .signup-text a { color: #3182ce; font-weight: bold; text-decoration: none; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            background: #ffffff;
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .wallet {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
+        }
+        .btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
     </style>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>કમાણી અને રિડિમ</h2>
+        <div class="wallet">તમારા કોઈન: <span id="coinCount">0</span> 🪙</div>
+        <p>₹10 નો રિડિમ કોડ મેળવવા માટે ૧૦૦૦ કોઈન પૂરા કરો.</p>
+        <button class="btn" onclick="redeemCode()">રિડિમ કોડ લો 🎟️</button>
+    </div>
+
     <script>
-        
+        // વેબસાઇટ લોગિન થતાં જ ૧૦ કોઈન બોનસ આપવું
+        let coins = 10; 
+        document.getElementById("coinCount").innerText = coins;
+
+        function redeemCode() {
+            if (coins >= 1000) {
+                coins -= 1000;
+                document.getElementById("coinCount").innerText = coins;
+                alert("अभिनंदन! તમારો ₹10 નો રિડિમ કોડ સફળતાપૂર્વક મળી ગયો છે. 🎉");
+            } else {
+                alert("રિડિમ કરવા માટે ઓછામાં ઓછા ૧૦૦૦ કોઈનની જરૂર છે! 🪙");
+            }
+        }
+    </script>
+
+</body>
+</html>
+
