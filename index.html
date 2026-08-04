@@ -1,87 +1,79 @@
 <!DOCTYPE html>
 <html lang="gu">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cheapest SMM Panels - Login</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
-    body { background-color: #090317; color: #ffffff; padding: 20px 15px; }
-    .container { max-width: 400px; margin: 0 auto; }
-    
-    /* Heading & Bullet points */
-    .header-title { font-size: 26px; font-weight: 800; text-align: center; margin-bottom: 15px; line-height: 1.2; }
-    .features-list { list-style: none; margin-bottom: 25px; padding-left: 10px; }
-    .features-list li { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
-
-    /* White Card Form */
-    .card { background-color: #ffffff; color: #333333; border-radius: 16px; padding: 25px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-    .form-group { margin-bottom: 15px; }
-    .form-group label { display: block; font-size: 13px; font-weight: 700; color: #4a5568; margin-bottom: 6px; }
-    .form-group input { width: 100%; padding: 12px; border: 1px solid #e2e8f0; background-color: #eef0f8; border-radius: 8px; outline: none; font-size: 14px; }
-    
-    .forgot-pass { display: block; text-align: left; font-size: 13px; color: #3182ce; text-decoration: none; margin-bottom: 18px; }
-    .btn-signin { width: 100%; padding: 12px; background-color: #2b4c7e; color: #ffffff; border: none; border-radius: 8px; font-weight: bold; font-size: 15px; cursor: pointer; margin-bottom: 15px; }
-    
-    /* Google Button Wrapper inside card */
-    .google-btn-box { display: flex; justify-content: center; margin-bottom: 15px; }
-    .signup-text { text-align: center; font-size: 13px; color: #4a5568; }
-    .signup-text a { color: #3182ce; text-decoration: none; font-weight: bold; }
-  </style>
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheapest SMM Panels - Login</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+        body { background-color: #f0f0f0; color: #333333; padding: 20px 15px; }
+        .container { max-width: 400px; margin: 0 auto; }
+        .header-title { font-size: 26px; font-weight: 800; text-align: center; margin-bottom: 15px; line-height: 1.2; }
+        .features-list { list-style: none; margin-bottom: 25px; padding-left: 10px; }
+        .features-list li { font-size: 14px; margin-bottom: 6px; }
+        .card { background-color: #ffffff; color: #333333; border-radius: 16px; padding: 25px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 13px; font-weight: 700; color: #4a5568; margin-bottom: 6px; }
+        .form-group input { width: 100%; padding: 12px; border: 1px solid #e2e8f0; background-color: #edf2f7; border-radius: 8px; }
+        .forgot-pass { display: block; text-align: left; font-size: 13px; color: #3182ce; text-decoration: none; margin-bottom: 15px; }
+        .btn-signin { width: 100%; padding: 12px; background-color: #2b6cb0; color: #ffffff; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; margin-bottom: 15px; }
+        .google-btn-box { display: flex; justify-content: center; margin-bottom: 15px; }
+        .signup-text { font-size: 13px; text-align: center; color: #4a5568; }
+        .signup-text a { color: #3182ce; font-weight: bold; text-decoration: none; }
+    </style>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        function handleCredentialResponse(response) {
+            // 🔐 यहाँ यूजर के लॉगिन करने पर टोकन मिलेगा
+            console.log("Encoded JWT ID token: " + response.credential);
+            alert("सफलतापूर्वक लॉगिन हो गया!");
+        }
+    </script>
 </head>
 <body>
 
-  <div class="container">
-    
-    <h1 class="header-title">The Cheapest & Best SMM Panel For RESELLERS</h1>
-    <ul class="features-list">
-      <li>• Main Supplier of SMM Services</li>
-      <li>• Whatsap Support ⚡</li>
-      <li>• We beat any price/any quality !</li>
-      <li>• Best panel Support in the market !</li>
-    </ul>
+    <div class="container">
+        <h1 class="header-title">The Cheapest & Best SMM Panel For RESELLERS</h1>
+        
+        <ul class="features-list">
+            <li>⚡ Main Supplier of SMM Services</li>
+            <li>💬 Whatsapp Support 24/7</li>
+            <li>🔥 We beat any price/any quality</li>
+            <li>🏆 Best panel Support in the market !</li>
+        </ul>
 
-    <div class="card">
-      <div class="form-group">
-        <label>Username</label>
-        <input type="text">
-      </div>
+        <div class="card">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text">
+            </div>
 
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password">
-      </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password">
+            </div>
 
-      <a href="#" class="forgot-pass">Forgot password?</a>
+            <a href="#" class="forgot-pass">Forgot password?</a>
 
-      <button class="btn-signin">Sign in</button>
+            <button class="btn-signin">Sign in</button>
 
-      <div id="g_id_onload"
-           data-client_id="537797135096-kca5ql8jm1jrkuga2lieaesuf4em5vg7.apps.googleusercontent.com"
-           data-callback="handleCredentialResponse"
-           data-auto_prompt="false">
-      </div>
+            <div id="g_id_onload"
+                 data-client_id="537797135096-kca5ql8jm1jrkuga2lieaesuf4em5vg7.apps.googleusercontent.com"
+                 data-callback="handleCredentialResponse"
+                 data-auto_prompt="false">
+            </div>
 
-      <div class="google-btn-box">
-        <div class="g_id_signin"
-             data-type="standard"
-             data-size="large"
-             data-theme="outline">
+            <div class="google-btn-box">
+                <div class="g_id_signin"
+                     data-type="standard"
+                     data-size="large"
+                     data-theme="outline">
+                </div>
+            </div>
+
+            <p class="signup-text">Do not have an account? <a href="#">Sign up</a></p>
         </div>
-      </div>
-
-      <p class="signup-text">Do not have an account? <a href="#">Sign up</a></p>
     </div>
-
-  </div>
-
-  <script>
-    function handleCredentialResponse(response) {
-      console.log("Encoded JWT ID token: " + response.credential);
-      // You can decode or send this token to your backend here
-    }
-  </script>
 
 </body>
 </html>
