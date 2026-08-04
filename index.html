@@ -1,70 +1,58 @@
 <!DOCTYPE html>
-<html lang="gu">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>રિવોર્ડ વેબસાઇટ</title>
+    <title>सुमित का पेज</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
             text-align: center;
             padding: 20px;
+            margin: 0;
         }
         .container {
             max-width: 400px;
-            background: #ffffff;
-            margin: 40px auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        .wallet {
-            font-size: 20px;
-            font-weight: bold;
+        h1 {
             color: #333;
-            margin: 20px 0;
+            font-size: 24px;
+        }
+        p {
+            color: #666;
+            font-size: 14px;
         }
         .btn {
-            background-color: #28a745;
+            display: block;
+            background-color: #007BFF;
             color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
         }
         .btn:hover {
-            background-color: #218838;
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2>કમાણી અને રિડિમ</h2>
-        <div class="wallet">તમારા કોઈન: <span id="coinCount">0</span> 🪙</div>
-        <p>₹10 નો રિડિમ કોડ મેળવવા માટે ૧૦૦૦ કોઈન પૂરા કરો.</p>
-        <button class="btn" onclick="redeemCode()">રિડિમ કોડ લો 🎟️</button>
+        <h1>सुमित 📱</h1>
+        <p>नमस्ते! यह मेरा मोबाइल पेज है।</p>
+        
+        <a href="mailto:apka.email@example.com" class="btn">📧 ईमेल भेजें</a>
+        <a href="#" class="btn">🌐 मेरी वेबसाइट</a>
+        <a href="#" class="btn">💬 चैट करें</a>
     </div>
-
-    <script>
-        // વેબસાઇટ લોગિન થતાં જ ૧૦ કોઈન બોનસ આપવું
-        let coins = 10; 
-        document.getElementById("coinCount").innerText = coins;
-
-        function redeemCode() {
-            if (coins >= 1000) {
-                coins -= 1000;
-                document.getElementById("coinCount").innerText = coins;
-                alert("अभिनंदन! તમારો ₹10 નો રિડિમ કોડ સફળતાપૂર્વક મળી ગયો છે. 🎉");
-            } else {
-                alert("રિડિમ કરવા માટે ઓછામાં ઓછા ૧૦૦૦ કોઈનની જરૂર છે! 🪙");
-            }
-        }
-    </script>
 
 </body>
 </html>
-
