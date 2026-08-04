@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedySMM - YouTube Services</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f9; max-width: 500px; margin: auto;">
+    
+    <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <h1 style="color: #333; text-align: center;">🚀 SpeedySMM Services</h1>
+        <p style="color: #666; text-align: center;">Get instant YouTube growth safely.</p>
+
+        <h2 style="color: #444; font-size: 18px;">📋 Available Services</h2>
+        <ul style="color: #555; line-height: 1.6;">
+            <li>📺 YouTube Subscribers (High Quality)</li>
+            <li>👍 YouTube Video Likes</li>
+            <li>👁️ YouTube Views (Non-Drop)</li>
+        </ul>
+
+        <hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;">
+
+        <h2 style="color: #444; font-size: 18px;">🛒 Order Form</h2>
+        <form id="orderForm">
+            <label for="service" style="font-weight: bold; color: #333;">Select Service:</label><br>
+            <select id="service" name="service" style="width: 100%; padding: 10px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+                <option value="YouTube Subscribers">📺 YouTube Subscribers (High Quality)</option>
+                <option value="YouTube Video Likes">👍 YouTube Video Likes</option>
+                <option value="YouTube Views">👁️ YouTube Views (Non-Drop)</option>
+            </select><br>
+
+            <label for="quantity" style="font-weight: bold; color: #333;">Quantity:</label><br>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" style="width: 100%; padding: 10px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"><br>
+
+            <label for="link" style="font-weight: bold; color: #333;">YouTube Link:</label><br>
+            <input type="text" id="link" name="link" placeholder="Enter video or channel link" style="width: 100%; padding: 10px; margin-top: 5px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;"><br>
+            
+            <button type="button" onclick="sendToWhatsApp()" style="width: 100%; padding: 12px; background-color: #25D366; color: white; border: none; cursor: pointer; font-size: 16px; font-weight: bold; border-radius: 5px;">Order on WhatsApp 📱</button>
+        </form>
+    </div>
+
+    <script>
+        function sendToWhatsApp() {
+            let phone = "7016660420"; // यहाँ 91 के आगे अपना WhatsApp नंबर लिख लीजिए
+            let service = document.getElementById("service").value;
+            let quantity = document.getElementById("quantity").value;
+            let link = document.getElementById("link").value;
+
+            if (link.trim() === "") {
+                alert("कृपया अपनी YouTube लिंक दर्ज करें!");
+                return;
+            }
+
+            let message = `नया ऑर्डर मिला है! 🚀%0A*सेवा:* ${service}%0A*मात्रा:* ${quantity}%0A*लिंक:* ${link}`;
+            let whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${message}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
 
