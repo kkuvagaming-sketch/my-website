@@ -1,77 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpeedySMM - YouTube Services</title>
+    <title>SpeedySMM Services</title>
+    <style>
+        body {
+            background-color: #1a103c;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #271b4e;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .menu-bar {
+            background: #1a103c;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #443377;
+        }
+        .menu-bar ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+        }
+        .menu-bar li {
+            padding: 8px 0;
+            border-bottom: 1px solid #443377;
+            cursor: pointer;
+        }
+        .menu-bar li:last-child {
+            border-bottom: none;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        select, input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #443377;
+            background: #1a103c;
+            color: #fff;
+            box-sizing: border-box;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        .info-box {
+            background: #ffffff;
+            color: #000000;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+    </style>
 </head>
-<body style="font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f9; max-width: 500px; margin: auto;">
+<body>
 
-    <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-        <h1 style="color: #333; text-align: center;">⚡ SpeedySMM Services</h1>
-        <p style="color: #666; text-align: center;">Get instant YouTube growth safely. 🚀</p>
+    <div class="container">
+        <div class="menu-bar">
+            <h3 style="margin: 0 0 5px 0; color: #fff;">👑 SpeedySMM Services</h3>
+            <p style="margin: 5px 0; color: #ddd; font-size: 14px;">👤 kkuvagaming | Balance: ₹99.69</p>
+            <ul>
+                <li>🛒 New Order</li>
+                <li>📦 Orders</li>
+                <li>💳 Add Funds</li>
+                <li>⚙️ Services</li>
+            </ul>
+        </div>
+        
+        <div class="form-group">
+            <label>Category</label>
+            <select>
+                <option>📸 Instagram Followers [Guaranteed]</option>
+            </select>
+        </div>
 
-        <h2 style="color: #444; font-size: 18px;">📦 Available Services</h2>
-        <ul style="color: #555; line-height: 1.6;">
-            <li>📺 YouTube Subscribers (High Quality)</li>
-            <li>👍 YouTube Video Likes</li>
-            <li>🔥 YouTube Views (Non-Drop)</li>
-        </ul>
+        <div class="form-group">
+            <label>Service</label>
+            <select>
+                <option>Instagram Followers [Refill - 365 days]</option>
+            </select>
+        </div>
 
-        <hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;">
+        <div class="form-group">
+            <label>Link</label>
+            <input type="text" placeholder="Profile link">
+        </div>
 
-        <h2 style="color: #444; font-size: 18px;">🛒 Order Form</h2>
-        <div id="orderForm">
-            <label for="service" style="font-weight: bold; color: #333;">Select Service:</label><br>
-            <select id="service" name="service" style="width: 100%; padding: 10px; margin-top: 5px; margin-bottom: 15px;">
-                <option value="YouTube Subscribers">📺 YouTube Subscribers (High Quality)</option>
-                <option value="YouTube Video Likes">👍 YouTube Video Likes</option>
-                <option value="YouTube Views">🔥 YouTube Views (Non-Drop)</option>
-            </select><br>
+        <div class="form-group">
+            <label>Quantity</label>
+            <input type="number" value="1">
+        </div>
 
-            <label for="quantity" style="font-weight: bold; color: #333;">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" min="1" value="1" style="width: 100%; padding: 10px; margin-top: 5px; margin-bottom: 15px;">
+        <button class="submit-btn">Submit</button>
 
-            <label for="link" style="font-weight: bold; color: #333;">YouTube Link:</label>
-            <input type="text" id="link" name="link" placeholder="Enter video or channel link" style="width: 100%; padding: 10px; margin-top: 5px; margin-bottom: 20px;">
-
-            <button type="button" onclick="sendToTelegram()" style="width: 100%; padding: 12px; background: #0088cc; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">Send Order to Telegram</button>
+        <div class="info-box">
+            <span>IMPORTANT CONDITIONS FOR PLACING ORDERS</span>
+            <span style="font-size: 20px; cursor: pointer;">+</span>
         </div>
     </div>
 
-    <script>
-    function sendToTelegram() {
-        const token = "8874066572:AAEVG3DW7U19p11H6NkaU24cDBmH-QRGc_I";
-        const chatId = "8682676688";
-
-        let service = document.getElementById('service').value;
-        let quantity = document.getElementById('quantity').value;
-        let link = document.getElementById('link').value;
-
-        if (link.trim() === "") {
-            alert("कृपया अपनी YouTube लिंक दर्ज करें!");
-            return;
-        }
-
-        let message = `🔔 नया ऑर्डर मिला!\n\n📦 सेवा: ${service}\n🔢 मात्रा: ${quantity}\n🔗 लिंक: ${link}`;
-        let telegramUrl = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
-
-        fetch(telegramUrl)
-            .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    alert("ऑर्डर सफलतापूर्वक टेलीग्राम पर भेज दिया गया है! 🎉");
-                    document.getElementById('link').value = "";
-                } else {
-                    alert("संदेश भेजने में विफल। कृपया चैट आईडी जांचें।");
-                }
-            })
-            .catch(error => {
-                console.error("त्रुटि:", error);
-                alert("कनेक्शन त्रुटि हुई!");
-            });
-    }
-    </script>
+    <a href="https://wa.me/yourphonenumber" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; text-decoration: none; box-shadow: 0 4px 8px rgba(0,0,0,0.3); z-index: 1000;">
+        💬
+    </a>
 
 </body>
 </html>
