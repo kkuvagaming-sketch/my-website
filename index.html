@@ -41,8 +41,8 @@
 
     <script>
     function sendToTelegram() {
-        const token = "8874066572:AAEVG3DW7U19p11H6NkaU24cDBmH-QRGc_I"; 
-        const chatId = "868267688"; 
+        const token = "8874066572:AAEVG3DW7U19p11H6NkaU24cDBmH-QRGc_I";
+        const chatId = "868267688";
 
         let service = document.getElementById('service').value;
         let quantity = document.getElementById('quantity').value;
@@ -61,7 +61,7 @@
             .then(data => {
                 if (data.ok) {
                     alert("ऑर्डर सफलतापूर्वक टेलीग्राम पर भेज दिया गया है! 🎉");
-                    document.getElementById('link').value = ""; 
+                    document.getElementById('link').value = "";
                 } else {
                     alert("संदेश भेजने में विफल। कृपया चैट आईडी जांचें।");
                 }
