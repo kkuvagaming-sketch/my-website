@@ -93,7 +93,6 @@
 
         <button class="submit-btn" onclick="sendOrder()">Submit Order</button>
     </div>
-
     <script>
         function sendOrder() {
             let service = document.getElementById('service').value;
@@ -105,15 +104,24 @@
                 return;
             }
 
-            // आपके Telegram Bot टोकन और चैट आईडी यहाँ जोड़े जाएंगे
             let botToken = "8874066572:AAEVD3W7U19p11H6NkaU24cDBmH-QRGc_I";
+            let chatId = "8682676688";
             let text = `📦 नया SMM ऑर्डर मिला!\n\n🔧 सर्विस: ${service}\n🔗 लिंक: ${link}\n📊 मात्रा: ${quantity}`;
             
-            // इसे सीधे टेलीग्राम बॉट पर भेजने का लिंक
-            console.log("Order Data Ready: ", text);
-            alert('आपका ऑर्डर प्रोसेस कर दिया गया है!');
+            let url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=` + encodeURIComponent(text);
+
+            fetch(url)
+                .then(response => {
+                    if (response.ok) {
+                        alert('आपका ऑर्डर सफलतापूर्वक टेलीग्राम पर भेज दिया गया है!');
+                    } else {
+                        alert('ऑर्डर भेजने में कुछ समस्या आई।');
+                    }
+                })
+                .catch(error => {
+                    alert('कनेक्शन एरर!');
+                });
         }
     </script>
 
-</body>
-</html>
+    
